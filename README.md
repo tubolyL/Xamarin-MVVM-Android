@@ -12,16 +12,16 @@
 # Sample Images From The Application:
 - Login page
 
-![Login](\Example-Images\Login.png)
+![Login](/Example-Images/Login.png)
 
 - List of uploaded recipes 
 
-![CocktailList](\Example-Images\CocktailList.png)
+![CocktailList](/Example-Images/CocktailList.png)
 
 - Detailed recipe view
 
-![CocktailList](\Example-Images\DetailedView.png)
+![CocktailList](/Example-Images/DetailedView.png)
 
 - Upload page 
 
-![CocktailList](\Example-Images\Upload.png)
+![CocktailList](/Example-Images/Upload.png)

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CocktailBuddy.Helper"
+             x:Class="CocktailBuddy.Views.DetailedView">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ByteArrayToImageConverter x:Key="ByteToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#660066">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400"/>
+                </Grid.ColumnDefinitions>
+
+                <Label TextColor="#211C25" Text="Cocktail Name"  Grid.Row="0" Margin="10,10,0,0" FontAttributes="Bold" FontSize="20"/>
+                <Label TextColor="#211C25" Text="{Binding ViewCocktail.CocktailName}" Margin="10,0,0,0" FontSize="20" Grid.Row="1" VerticalOptions="CenterAndExpand"/>
+                <Label TextColor="#211C25" Text="Description"  Grid.Row="2" Margin="10,10,0,0" FontAttributes="Bold" FontSize="20"/>
+                <ScrollView Grid.Row="3">
+                    <Label TextColor="#211C25" Text="{Binding ViewCocktail.Description}" FontSize="17" Margin="10,10,0,0" VerticalOptions="StartAndExpand" />
+                </ScrollView>
+                <Label TextColor="#211C25" Text="Language"  Grid.Row="4" FontAttributes="Bold" FontSize="20" Margin="10,0,0,0"/>
+                <Label TextColor="#211C25" Text="{Binding ViewCocktail.Language}" Margin="10,0,0,0" FontSize="20" Grid.Row="5" VerticalOptions="CenterAndExpand"  />
+                <Label TextColor="#211C25" Text="Picture"  Grid.Row="6" Margin="10,10,0,0" FontAttributes="Bold" FontSize="20"/>
+                <Image Source="{Binding ViewCocktail.Picture, Converter={StaticResource ByteToImage}}"  Grid.Row="7" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" Margin="10"/>
+                <Image Source="{Binding Rating}"  Grid.Row="8" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" Margin="0,0,0,0"/>
+                <Label Grid.Row="10" Text="Rate This Cocktail! " TextColor="#ffccff" VerticalOptions="Start" Margin="10,20,0,0" FontSize="15" Padding="2"/>
+                <Picker Grid.Row="10" ItemsSource="{Binding RatingList}" SelectedItem="{Binding SelectedRating}" Margin="0,0,40,0" VerticalOptions="Start"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

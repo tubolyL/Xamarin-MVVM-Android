@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CocktailBuddy.ViewModels"
+             xmlns:local="clr-namespace:CocktailBuddy.Helper"
+             x:Class="CocktailBuddy.Views.AddCocktailPage">
+
+    <ContentPage.BindingContext>
+        <vm:AddCocktailViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ByteArrayToImageConverter x:Key="ByteToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource White}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400"/>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Orientation="Horizontal" Margin="10,10,0,0" Grid.Row="0">
+                    <Image Source="cocktail_icon.png"/>
+                    <Label TextColor="#211C25" 
+                           Text="Cocktail Name" 
+                           Margin="20,0,0,0" 
+                           FontAttributes="Bold" 
+                           FontSize="20"
+                           VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <Entry TextColor="#211C25" 
+                       Text="{Binding NewCocktail.CocktailName}" 
+                       Margin="10,0,0,0" 
+                       FontSize="20" 
+                       Grid.Row="1" 
+                       VerticalOptions="CenterAndExpand"/>
+
+                <StackLayout Orientation="Horizontal" Grid.Row="2" Margin="10,10,0,0">
+                    <Image Source="ingredients.png"/>
+                    <Label TextColor="#211C25" 
+                           Text="Ingredients" 
+                           Margin="20,0,0,0" 
+                           FontAttributes="Bold" 
+                           FontSize="20"
+                           VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <ScrollView Grid.Row="3">
+                    <Editor TextColor="#211C25" 
+                            Text="{Binding NewCocktail.Description}" 
+                            FontSize="17" 
+                            Margin="10,10,0,0" 
+                            VerticalOptions="StartAndExpand" 
+                            HeightRequest="200"/>
+                </ScrollView>
+
+                <StackLayout Orientation="Horizontal" Grid.Row="4" Margin="10,10,0,0">
+                    <Image Source="languages.png"/>
+                    <Label TextColor="#211C25" Text="Language"  
+                           FontAttributes="Bold" 
+                           FontSize="20" 
+                           Margin="20,0,0,0"
+                           VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <Picker Grid.Row="5" 
+                        ItemsSource="{Binding Languages}" 
+                        SelectedItem="{Binding NewCocktail.Language}" 
+                        TextColor="#211C25" 
+                        Margin="10,0,40,0" 
+                        VerticalOptions="Start"/>
+
+                <StackLayout Orientation="Horizontal" Grid.Row="6" Margin="10,10,0,0">
+                    <Image Source="picture.png"/>
+                    <Label TextColor="#211C25" 
+                           Text="Picture" 
+                           Margin="20,0,0,0" 
+                           FontAttributes="Bold" 
+                           FontSize="20"
+                           VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <Image Source="{Binding Image, Converter={StaticResource ByteToImage}}"  
+                       Grid.Row="7" 
+                       VerticalOptions="StartAndExpand" 
+                       HorizontalOptions="StartAndExpand" 
+                       Margin="10,10,10,10" 
+                       HeightRequest="200" 
+                       WidthRequest="200"/>
+            </Grid>
+
+            <StackLayout Orientation="Horizontal">
+                <Button Margin="10,10,20,5" 
+                        HorizontalOptions="CenterAndExpand" 
+                        Grid.Row="8"
+                        Text="Select Image"
+                        Style="{StaticResource blueButton}"
+                        Command="{Binding SelectImageCommand}"/>
+                <Button Margin="10,10,20,5" 
+                        HorizontalOptions="CenterAndExpand" 
+                        Grid.Row="8"
+                        Text="Upload Cocktail"
+                        Style="{StaticResource blueButton}"
+                        Command="{Binding AddCommand}"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

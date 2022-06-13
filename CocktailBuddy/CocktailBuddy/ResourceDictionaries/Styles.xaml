@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:colors="clr-namespace:CocktailBuddy.ResourceDictionaries"
+             x:Class="CocktailBuddy.ResourceDictionaries.Styles">
+
+    <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <colors:Colors/>
+        </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+
+    <Style x:Key="gradientButton" TargetType="Button">
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+        <Setter Property="TextColor" Value="{StaticResource White}"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="CornerRadius" Value="6"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="{StaticResource PurpleFray}" Offset="0.194"/>
+                    <GradientStop Color="{StaticResource LightBlue}" Offset="0.45"/>
+                    <GradientStop Color="{StaticResource PurpleFray}" Offset="0.85"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="blueButton" TargetType="Button">
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource BrightBlue}"/>
+        <Setter Property="TextColor" Value="{StaticResource White}"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+        <Setter Property="Margin" Value="10,10,20,5"/>
+    </Style>
+
+    <Style x:Key="label" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="TextColor" Value="#211C25"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+    </Style>
+    
+    <Style x:Key="label1" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="TextColor" Value="#660066"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+    </Style>
+    
+</ResourceDictionary>

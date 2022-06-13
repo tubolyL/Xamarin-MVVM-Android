@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CocktailBuddy.ResourceDictionaries.Colors">
+    <Color x:Key="BrightBlue">#1DA1F2</Color>
+    <Color x:Key="LightBlue">#86c5da</Color>
+    <Color x:Key="White">#eefafc</Color>
+    <Color x:Key="OffWhite">#FFE5B4</Color>
+    <Color x:Key="PurpleFray">#5c5c8a</Color>
+    <Color x:Key="Red">#ff0000</Color>
+</ResourceDictionary>

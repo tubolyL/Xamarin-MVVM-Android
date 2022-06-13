@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="CocktailBuddy.Views.Tabs"
+            xmlns:page="clr-namespace:CocktailBuddy.Views.Pages"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="#660066"
+            android:TabbedPage.BarItemColor="#fefcf4"
+            android:TabbedPage.BarSelectedItemColor="White">
+
+    <page:CocktailList Title="Cocktails" IconImageSource="cocktail.png"/>
+    <page:MyCocktails Title="My Cocktails" IconImageSource="my_cocktail.png"/>
+    <page:Profile Title="Profile" IconImageSource="user.png"/>
+</TabbedPage>

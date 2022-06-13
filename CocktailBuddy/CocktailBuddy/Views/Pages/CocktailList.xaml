@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CocktailBuddy.ViewModels"
+             xmlns:local="clr-namespace:CocktailBuddy.Helper"
+             x:Class="CocktailBuddy.Views.Pages.CocktailList">
+    
+    <ContentPage.BindingContext>
+        <vm:CocktailListViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ByteArrayToImageConverter x:Key="ByteToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource PurpleFray}"> 
+            <Grid Margin="0,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width=".5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="2"/>
+                    <RowDefinition Height="100*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Text="Select Language: " 
+                       TextColor="#211C25" VerticalOptions="Start" Margin="10,20,0,0" FontSize="15" Padding="2"/>
+                <Picker Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Languages}" 
+                        SelectedItem="{Binding SelectedLanguage}" TextColor="#211C25" Margin="0,0,40,0" VerticalOptions="Start"/>
+                <Label Grid.Column="0" Grid.Row="1"
+                       Text="Picture" 
+                       VerticalOptions="Center" HorizontalOptions="Center" 
+                       Style="{StaticResource label1}"/>
+                <Label Grid.Column="1" Grid.Row="1" 
+                       Text="Cocktail name" 
+                       VerticalOptions="Center" HorizontalOptions="Center"
+                       Style="{StaticResource label1}"/>
+                <Label Grid.Column="2" Grid.Row="1" 
+                       Text="Rescepie Language" 
+                       VerticalOptions="Center" HorizontalOptions="Center"
+                       Style="{StaticResource label1}"/>                
+                <Label Grid.Column="3" Grid.Row="1" 
+                       Text="Rating" 
+                       VerticalOptions="Center" HorizontalOptions="Center"
+                       Style="{StaticResource label1}"/>
+                <Line BackgroundColor="{StaticResource LightBlue}" Grid.Row="2" Grid.ColumnSpan="4"/>
+            </Grid>
+            <StackLayout>
+                <ListView ItemsSource="{Binding CocktailsCollection}" SelectedItem="{Binding SelectedCocktail, Mode=TwoWay}" 
+                          HasUnevenRows="True" SeparatorColor="{StaticResource LightBlue}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width=".5*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="180"/>
+                                </Grid.RowDefinitions>
+                                    <Image Grid.Column="0" Source="{Binding Picture, Converter={StaticResource ByteToImage}}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Margin="10,10,10,10"/>
+                                    <Label Grid.Column="1" TextColor="#211C25" Text="{Binding CocktailName}" HorizontalTextAlignment="Center" FontSize="18" VerticalOptions="Center"/>
+                                    <Label Grid.Column="2" TextColor="#211C25" Text="{Binding Language}" HorizontalTextAlignment="Center" Padding="10" FontSize="15" VerticalOptions="Center"/>
+                                    <Image Grid.Column="3" Source="{Binding RatingSource}"/>
+                                </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

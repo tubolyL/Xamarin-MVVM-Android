@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "444887374100",
+    "firebase_url": "https://cocktailbuddy-5fc7b-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "cocktailbuddy-5fc7b",
+    "storage_bucket": "cocktailbuddy-5fc7b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:444887374100:android:5ec637e066cd5d7f3d8a01",
+        "android_client_info": {
+          "package_name": "com.companyname.cocktailbuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "444887374100-746n6bjo75kerqms37l6eliac92fd5er.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9BJck3G87_HyJZ9SedsoTTyOW8cpmkyI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "444887374100-746n6bjo75kerqms37l6eliac92fd5er.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

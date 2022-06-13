@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CocktailBuddy.ViewModels"
+             x:Class="CocktailBuddy.Views.Pages.Profile">
+
+    <ContentPage.BindingContext>
+        <vm:ProfileViewModel/>
+    </ContentPage.BindingContext>
+    
+    
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#FFFFFF">
+            <StackLayout Margin="20,100,50,0" IsVisible="{Binding LoginVisibility}">
+                <Label Text="Please log in to your account" FontSize="Large" TextColor="#211C25" FontAttributes="Italic"  HorizontalTextAlignment="Center" Margin="20"/>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Email" TextColor="#211C25" FontSize="Large" HorizontalOptions="StartAndExpand" Margin="10,0,0,0"/>
+                    <Entry Text="{Binding Email}" TextColor="#211C25"/>
+                    <Label Text="Password" TextColor="#211C25" FontSize="Large" HorizontalOptions="StartAndExpand" Margin="10,0,0,0"/>
+                    <Entry IsPassword="True" Text="{Binding Password}" TextColor="#211C25"/>
+                </StackLayout>
+                <Button x:Name="bttnSignIn" Text="Login" Command="{Binding LoginCommand}" Style="{StaticResource gradientButton}"/>
+                <Button x:Name="bttnSignUp" Text="Sign Up" Command="{Binding SignUpClickedCommand}" Style="{StaticResource gradientButton}"/>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding SignUpVisibility}">
+                <Label Text="Username" FontSize="Large" HorizontalOptions="StartAndExpand" Margin="10,0,0,0"/>
+                <Entry Text="{Binding Name}" TextColor="#211C25"/>
+                <Label Text="Email" FontSize="Large" HorizontalOptions="StartAndExpand" Margin="10,0,0,0"/>
+                <Entry Text="{Binding Email}" TextColor="#211C25"/>
+                <Label Text="Password" FontSize="Large" HorizontalOptions="StartAndExpand" Margin="10,0,0,0"/>
+                <Entry IsPassword="True" Text="{Binding Password}" TextColor="#211C25"/>
+                <Label Text="Confirm Password" FontSize="Large" HorizontalOptions="StartAndExpand" Margin="10,0,0,0"/>
+                <Entry IsPassword="True" Text="{Binding ConfirmPassword}" TextColor="#211C25"/>
+
+                <Button Text="Sign up" Command="{Binding SignUpCommand}"/>
+            </StackLayout>
+            <StackLayout IsVisible="{Binding ProfileVisibility}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label TextColor="#211C25" Text="Welcome!" FontSize="80" HorizontalOptions="Center"
+                           Grid.Row="0"/>
+                    <Button VerticalOptions="End" HorizontalOptions="Center" Text="Sign Out" TextColor="White" BackgroundColor="#211C25" Command="{Binding SignOutCommand}"
+                            Grid.Row="1"/>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

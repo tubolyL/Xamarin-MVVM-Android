@@ -20,8 +20,8 @@
 
 - Detailed recipe view
 
-![CocktailList](/Example-Images/DetailedView.png)
+![DetailedView](/Example-Images/DetailedView.png)
 
 - Upload page 
 
-![CocktailList](/Example-Images/Upload.png)
+![Upload](/Example-Images/Upload.png)
